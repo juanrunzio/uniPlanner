@@ -8,11 +8,13 @@ import {
   useEdgesState,
   type Node,
   type Edge,
+  type NodeChange,
   MarkerType,
   Panel,
 } from '@xyflow/react';
 import '@xyflow/react/dist/style.css';
 import dagre from 'dagre';
+import { RotateCcw } from 'lucide-react';
 import { useStore } from '../store';
 import SubjectNode from './SubjectNode';
 import type { SubjectState } from '../types';
@@ -93,7 +95,15 @@ function getLayoutedElements(
   dagre.layout(g);
 
   const nodes: Node[] = subjects.map((sub) => {
-    const pos = g.node(sub.id);
+    const dagrePos = g.node(sub.id);
+    let x = dagrePos?.x ?? 0;
+    let y = dagrePos?.y ?? 0;
+
+    if (sub.position) {
+      x = sub.position.x;
+      y = sub.position.y;
+    }
+
     const nodeData: Record<string, unknown> = {
       code: sub.code,
       name: sub.name,
@@ -106,7 +116,7 @@ function getLayoutedElements(
     return {
       id: sub.id,
       type: 'subjectNode',
-      position: { x: pos?.x ?? 0, y: pos?.y ?? 0 },
+      position: { x, y },
       data: nodeData,
     };
   });
@@ -138,6 +148,7 @@ function getLayoutedElements(
 export default function GraphCanvas() {
   const activePlan = useStore((s) => s.plans.find((p) => p.id === s.activePlanId));
   const setSubjectStatus = useStore((s) => s.setSubjectStatus);
+  const setSubjectPosition = useStore((s) => s.setSubjectPosition);
 
   const [highlightedId, setHighlightedId] = useState<string | null>(null);
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>(EMPTY_NODES);
@@ -153,12 +164,39 @@ export default function GraphCanvas() {
   const prevLayoutRef = useRef<string>('');
 
   useEffect(() => {
-    const key = JSON.stringify({ n: nextNodes.length, e: nextEdges.length, h: highlightedId ?? '' });
+    const statusHash = subjects.map((s) => `${s.id}:${s.status}`).join(',');
+    const key = JSON.stringify({
+      n: nextNodes.length,
+      e: nextEdges.length,
+      h: highlightedId ?? '',
+      s: statusHash,
+      p: subjects.filter((s) => s.position).map((s) => `${s.id}:${s.position?.x},${s.position?.y}`).join(';'),
+    });
     if (key === prevLayoutRef.current) return;
     prevLayoutRef.current = key;
+
     setNodes(nextNodes);
     setEdges(nextEdges);
-  }, [nextNodes, nextEdges, highlightedId, setNodes, setEdges]);
+  }, [nextNodes, nextEdges, highlightedId, setNodes, setEdges, subjects]);
+
+  const handleNodesChange = useCallback(
+    (changes: NodeChange[]) => {
+      onNodesChange(changes);
+
+      for (const change of changes) {
+        if (change.type === 'position' && change.position && change.dragging === false) {
+          setSubjectPosition(change.id, change.position);
+        }
+      }
+    },
+    [onNodesChange, setSubjectPosition],
+  );
+
+  const handleResetLayout = useCallback(() => {
+    for (const sub of subjects) {
+      setSubjectPosition(sub.id, null);
+    }
+  }, [subjects, setSubjectPosition]);
 
   const onNodeClick = useCallback(
     (_event: React.MouseEvent, node: Node) => {
@@ -187,12 +225,14 @@ export default function GraphCanvas() {
     setHighlightedId(null);
   }, []);
 
+  const hasCustomPositions = subjects.some((s) => s.position);
+
   return (
     <div className="w-full h-full">
       <ReactFlow
         nodes={nodes}
         edges={edges}
-        onNodesChange={onNodesChange}
+        onNodesChange={handleNodesChange}
         onEdgesChange={onEdgesChange}
         onNodeClick={onNodeClick}
         onNodeDoubleClick={onNodeDoubleClick}
@@ -220,18 +260,24 @@ export default function GraphCanvas() {
           }}
         />
         <Panel position="top-center" className="!bg-transparent !m-0">
-          {highlightedId && (
-            <div className="flex items-center gap-2 px-3 py-1.5 text-xs bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-sm">
-              <span className="text-[var(--color-text-muted)]">
-                Click anywhere to deselect
+          <div className="flex items-center gap-2">
+            {highlightedId && (
+              <span className="px-3 py-1.5 text-xs bg-[var(--color-surface)] border border-[var(--color-border)] rounded-lg shadow-sm">
+                <span className="text-[var(--color-text-muted)]">Selected — click canvas to deselect</span>
               </span>
-              <button
-                onClick={() => setHighlightedId(null)}
-                className="text-[var(--color-accent)] hover:underline"
-              >
-                Clear
-              </button>
-            </div>
+            )}
+          </div>
+        </Panel>
+        <Panel position="top-right" className="!bg-transparent !m-0 !mt-12">
+          {hasCustomPositions && (
+            <button
+              onClick={handleResetLayout}
+              className="flex items-center gap-1 px-2 py-1.5 text-xs font-medium rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] shadow-sm hover:bg-[var(--color-border)] transition-colors"
+              title="Reset all node positions to auto-layout"
+            >
+              <RotateCcw size={12} />
+              Reset Layout
+            </button>
           )}
         </Panel>
       </ReactFlow>

@@ -38,6 +38,7 @@ interface AppState {
 
   setSubjectStatus: (id: string, status: SubjectState['status'], grade?: number) => void;
   setSubjectGrade: (id: string, grade: number | undefined) => void;
+  setSubjectPosition: (id: string, position: { x: number; y: number } | null) => void;
 
   importPlanFromJSON: (json: string) => boolean;
   exportActivePlan: () => string | null;
@@ -195,6 +196,22 @@ export const useStore = create<AppState>()((set, get) => {
       save();
     },
 
+    setSubjectPosition: (id, position) => {
+      set((s) => ({
+        plans: s.plans.map((p) =>
+          p.id === s.activePlanId
+            ? {
+                ...p,
+                subjects: p.subjects.map((sub) =>
+                  sub.id === id ? { ...sub, position: position ?? undefined } : sub
+                ),
+              }
+            : p
+        ),
+      }));
+      save();
+    },
+
     importPlanFromJSON: (json) => {
       try {
         const data = JSON.parse(json);
@@ -203,7 +220,8 @@ export const useStore = create<AppState>()((set, get) => {
         const subjects: SubjectState[] = data.subjects.map((s: any) => ({
           ...s,
           id: s.id ?? generateId(),
-          status: 'pending',
+          status: s.status ?? 'pending',
+          grade: s.grade,
           prerequisites: s.prerequisites ?? [],
           category: s.category ?? 'General',
           hours: s.hours ?? 0,
@@ -224,7 +242,9 @@ export const useStore = create<AppState>()((set, get) => {
       if (!plan) return null;
       const data = {
         name: plan.name,
-        subjects: plan.subjects.map(({ status, grade, ...rest }) => rest),
+        subjects: plan.subjects.map(({ id, code, name, hours, prerequisites, category, semester, status, grade, position }) => ({
+          id, code, name, hours, prerequisites, category, semester, status, grade, position,
+        })),
       };
       return JSON.stringify(data, null, 2);
     },
@@ -234,7 +254,8 @@ export const useStore = create<AppState>()((set, get) => {
       const subjects: SubjectState[] = data.subjects.map((s) => ({
         ...s,
         id: s.id || generateId(),
-        status: 'pending',
+        status: s.status ?? 'pending',
+        grade: s.grade,
         prerequisites: s.prerequisites || [],
         category: s.category || 'General',
         hours: s.hours ?? 0,
@@ -252,7 +273,9 @@ export const useStore = create<AppState>()((set, get) => {
       if (!plan) return null;
       return {
         name: plan.name,
-        subjects: plan.subjects.map(({ status, grade, ...rest }) => rest),
+        subjects: plan.subjects.map(({ id, code, name, hours, prerequisites, category, semester, status, grade, position }) => ({
+          id, code, name, hours, prerequisites, category, semester, status, grade, position,
+        })),
       };
     },
 

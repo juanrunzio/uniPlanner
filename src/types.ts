@@ -6,11 +6,14 @@ export interface Subject {
   prerequisites: string[];
   category: string;
   semester?: number;
+  status?: 'pending' | 'in-progress' | 'approved';
+  grade?: number;
 }
 
 export interface SubjectState extends Subject {
   status: 'pending' | 'in-progress' | 'approved';
   grade?: number;
+  position?: { x: number; y: number };
 }
 
 export interface Plan {

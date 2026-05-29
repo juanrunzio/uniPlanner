@@ -2,7 +2,6 @@
 
 A universal interactive university subject planner. Build prerequisite dependency maps for any degree program with a visual, draggable graph.
 
-Inspired by [FIUBA-Map](https://github.com/FdelMazo/FIUBA-Map).
 
 ## How It Works
 

@@ -3,6 +3,7 @@ import { useStore } from './store';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import GraphCanvas from './components/GraphCanvas';
+import ProgressBar from './components/ProgressBar';
 
 export default function App() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
@@ -24,6 +25,7 @@ export default function App() {
           <GraphCanvas />
         </div>
       </div>
+      <ProgressBar />
     </div>
   );
 }
