@@ -1,0 +1,598 @@
+{
+  "name": "Licenciatura en Gestión de Tecnología de la Información (Sistemas)",
+  "subjects": [
+    {
+      "id": "3.4.225",
+      "code": "3.4.225",
+      "name": "Introducción a la Algoritmia",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 1,
+      "status": "approved"
+    },
+    {
+      "id": "3.4.164",
+      "code": "3.4.164",
+      "name": "Sistemas de Información I",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 1,
+      "status": "approved"
+    },
+    {
+      "id": "3.4.072",
+      "code": "3.4.072",
+      "name": "Arquitectura de Computadores",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 1,
+      "status": "approved"
+    },
+    {
+      "id": "1.2.001",
+      "code": "1.2.001",
+      "name": "Marketing",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 1,
+      "status": "approved",
+      "position": {
+        "x": 121.54213305239469,
+        "y": 1165.4348805650689
+      }
+    },
+    {
+      "id": "3.4.226",
+      "code": "3.4.226",
+      "name": "Diseño y Desarrollo web",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 1,
+      "status": "approved",
+      "position": {
+        "x": 112.27949926100086,
+        "y": 1058.6802799294658
+      }
+    },
+    {
+      "id": "3.4.227",
+      "code": "3.4.227",
+      "name": "Algoritmos y Estructuras de Datos I",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.225"
+      ],
+      "category": "Required",
+      "semester": 2,
+      "status": "approved"
+    },
+    {
+      "id": "3.4.207",
+      "code": "3.4.207",
+      "name": "Sistemas de Información II",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.164"
+      ],
+      "category": "Required",
+      "semester": 2,
+      "status": "approved"
+    },
+    {
+      "id": "3.4.075",
+      "code": "3.4.075",
+      "name": "Sistemas Operativos",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.072"
+      ],
+      "category": "Required",
+      "semester": 2,
+      "status": "approved",
+      "position": {
+        "x": 460.2821937974877,
+        "y": 395.45061608543966
+      }
+    },
+    {
+      "id": "3.1.024",
+      "code": "3.1.024",
+      "name": "Matemática Discreta",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 2,
+      "status": "approved",
+      "position": {
+        "x": 116.1397496305004,
+        "y": 941.0507560351598
+      }
+    },
+    {
+      "id": "3.4.228",
+      "code": "3.4.228",
+      "name": "Testing de Aplicaciones",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 2,
+      "status": "approved",
+      "position": {
+        "x": 118.9335545986041,
+        "y": 578.9387087392133
+      }
+    },
+    {
+      "id": "3.4.229",
+      "code": "3.4.229",
+      "name": "Algoritmos y Estructuras de Datos II",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.227"
+      ],
+      "category": "Required",
+      "semester": 3,
+      "status": "in-progress",
+      "position": {
+        "x": 822.9426873577094,
+        "y": -23.23293998386431
+      }
+    },
+    {
+      "id": "3.4.208",
+      "code": "3.4.208",
+      "name": "Paradigma Orientado a Objetos",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 3,
+      "status": "approved",
+      "position": {
+        "x": 354.7883546518842,
+        "y": 593.2116453481158
+      }
+    },
+    {
+      "id": "3.4.230",
+      "code": "3.4.230",
+      "name": "Redes de Datos",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 3,
+      "status": "in-progress",
+      "position": {
+        "x": 109.70599901466778,
+        "y": 737.9604613257105
+      }
+    },
+    {
+      "id": "1.4.076",
+      "code": "1.4.076",
+      "name": "Fundamentos de Economía",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 3,
+      "status": "in-progress",
+      "position": {
+        "x": 123.8602503694996,
+        "y": 1303.59525283283
+      }
+    },
+    {
+      "id": "3.4.131",
+      "code": "3.4.131",
+      "name": "Gestión de Personas en Organizaciones de Tecnología",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 3,
+      "status": "in-progress",
+      "position": {
+        "x": 112.27949926100084,
+        "y": 1403.426499753667
+      }
+    },
+    {
+      "id": "3.4.231",
+      "code": "3.4.231",
+      "name": "Diseño y Análisis de Algoritmos",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.229"
+      ],
+      "category": "Required",
+      "semester": 4,
+      "status": "pending",
+      "position": {
+        "x": 1180.9114259164598,
+        "y": -56.31058664515242
+      }
+    },
+    {
+      "id": "3.4.142",
+      "code": "3.4.142",
+      "name": "Dirección de Proyectos de Tecnología",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.207"
+      ],
+      "category": "Required",
+      "semester": 4,
+      "status": "pending",
+      "position": {
+        "x": 1037.947390656082,
+        "y": 127.6685723940146
+      }
+    },
+    {
+      "id": "3.4.209",
+      "code": "3.4.209",
+      "name": "Ingeniería de Datos I",
+      "hours": 68,
+      "prerequisites": [
+        "3.1.024"
+      ],
+      "category": "Required",
+      "semester": 4,
+      "status": "pending",
+      "position": {
+        "x": 420.58800197066444,
+        "y": 902.448252340164
+      }
+    },
+    {
+      "id": "3.4.214",
+      "code": "3.4.214",
+      "name": "Ingeniería de Software",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.207"
+      ],
+      "category": "Required",
+      "semester": 4,
+      "status": "pending",
+      "position": {
+        "x": 716.6216802321404,
+        "y": 284.4768073899807
+      }
+    },
+    {
+      "id": "1.1.093",
+      "code": "1.1.093",
+      "name": "Liderazgo y Negociación",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 4,
+      "status": "pending",
+      "position": {
+        "x": 122.57350024633305,
+        "y": 1707.8510162579817
+      }
+    },
+    {
+      "id": "optativa1",
+      "code": "1",
+      "name": "Optativa I",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Elective",
+      "semester": 5,
+      "status": "pending",
+      "position": {
+        "x": 1278.1308203883868,
+        "y": 1323.9886518522858
+      }
+    },
+    {
+      "id": "3.4.082",
+      "code": "3.4.082",
+      "name": "Aplicaciones Interactivas",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.208"
+      ],
+      "category": "Required",
+      "semester": 5,
+      "status": "in-progress",
+      "position": {
+        "x": 798.1344523617432,
+        "y": 457.82386571659083
+      }
+    },
+    {
+      "id": "3.4.210",
+      "code": "3.4.210",
+      "name": "Proceso de Desarrollo de Software",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.208"
+      ],
+      "category": "Required",
+      "semester": 5,
+      "status": "pending",
+      "position": {
+        "x": 994.9744625918734,
+        "y": 665.4788354651885
+      }
+    },
+    {
+      "id": "3.4.092",
+      "code": "3.4.092",
+      "name": "Seguridad e Integridad de la Información",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.230"
+      ],
+      "category": "Required",
+      "semester": 5,
+      "status": "pending",
+      "position": {
+        "x": 458.1142247872386,
+        "y": 766.5945033795172
+      }
+    },
+    {
+      "id": "3.1.049",
+      "code": "3.1.049",
+      "name": "Probabilidad y Estadística",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 5,
+      "status": "pending",
+      "position": {
+        "x": 135.11145355555084,
+        "y": 1574.3635811431047
+      }
+    },
+    {
+      "id": "2.4.216",
+      "code": "2.4.216",
+      "name": "Examen de Inglés",
+      "hours": 0,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 5,
+      "status": "pending",
+      "position": {
+        "x": 1580.4613897940078,
+        "y": 1327.9406919885657
+      }
+    },
+    {
+      "id": "optativa2",
+      "code": "2",
+      "name": "Optativa II",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Elective",
+      "semester": 6,
+      "status": "pending",
+      "position": {
+        "x": 1290.4172059575246,
+        "y": 1420.9782764115155
+      }
+    },
+    {
+      "id": "3.4.233",
+      "code": "3.4.233",
+      "name": "Seminario de Gestión de Tecnología",
+      "hours": 118,
+      "prerequisites": [
+        "3.4.208",
+        "3.4.209"
+      ],
+      "category": "Required",
+      "semester": 6,
+      "status": "pending",
+      "position": {
+        "x": 921.7713109981011,
+        "y": 812.377043023642
+      }
+    },
+    {
+      "id": "3.4.213",
+      "code": "3.4.213",
+      "name": "Ingeniería de Datos II",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.209"
+      ],
+      "category": "Required",
+      "semester": 6,
+      "status": "pending",
+      "position": {
+        "x": 1204.4550860381432,
+        "y": 1143.4806234462696
+      }
+    },
+    {
+      "id": "3.4.139",
+      "code": "3.4.139",
+      "name": "Evaluación de Proyectos de Tecnología",
+      "hours": 68,
+      "prerequisites": [
+        "3.1.049"
+      ],
+      "category": "Required",
+      "semester": 6,
+      "status": "pending",
+      "position": {
+        "x": 660.7638568013602,
+        "y": 1335.920312858774
+      }
+    },
+    {
+      "id": "3.1.056",
+      "code": "3.1.056",
+      "name": "Estadística Avanzada",
+      "hours": 68,
+      "prerequisites": [
+        "3.1.049"
+      ],
+      "category": "Required",
+      "semester": 6,
+      "status": "pending",
+      "position": {
+        "x": 662.1105247286081,
+        "y": 1658.827466398046
+      }
+    },
+    {
+      "id": "optativa3",
+      "code": "3",
+      "name": "Optativa III",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Elective",
+      "semester": 7,
+      "status": "pending",
+      "position": {
+        "x": 1296.1729883004077,
+        "y": 1528.0734272069349
+      }
+    },
+    {
+      "id": "3.4.216",
+      "code": "3.4.216",
+      "name": "Desarrollo de Aplicaciones I",
+      "hours": 108,
+      "prerequisites": [
+        "3.4.082"
+      ],
+      "category": "Required",
+      "semester": 7,
+      "status": "pending",
+      "position": {
+        "x": 1348.6623482701355,
+        "y": 377.8030247557578
+      }
+    },
+    {
+      "id": "3.4.141",
+      "code": "3.4.141",
+      "name": "Seguridad de Procesos y Aplicaciones",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.210"
+      ],
+      "category": "Required",
+      "semester": 7,
+      "status": "pending",
+      "position": {
+        "x": 1421.158782550781,
+        "y": 686.5776032943091
+      }
+    },
+    {
+      "id": "3.4.217",
+      "code": "3.4.217",
+      "name": "Ciencia de Datos",
+      "hours": 68,
+      "prerequisites": [
+        "3.4.209"
+      ],
+      "category": "Required",
+      "semester": 7,
+      "status": "pending",
+      "position": {
+        "x": 670.9576709303768,
+        "y": 1029.8306837215073
+      }
+    },
+    {
+      "id": "3.4.220",
+      "code": "3.4.220",
+      "name": "Tendencias Tecnológicas",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 7,
+      "status": "pending",
+      "position": {
+        "x": 128.48171901710612,
+        "y": 1830.1596689208004
+      }
+    },
+    {
+      "id": "optativa4",
+      "code": "4",
+      "name": "Optativa IV",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Elective",
+      "semester": 8,
+      "status": "pending",
+      "position": {
+        "x": 1297.0377400089,
+        "y": 1623.7304905736369
+      }
+    },
+    {
+      "id": "3.4.218",
+      "code": "3.4.218",
+      "name": "Desarrollo de Aplicaciones II",
+      "hours": 168,
+      "prerequisites": [
+        "3.4.082"
+      ],
+      "category": "Required",
+      "semester": 8,
+      "status": "pending",
+      "position": {
+        "x": 1520.7483740799637,
+        "y": 534.7816767504673
+      }
+    },
+    {
+      "id": "3.4.135",
+      "code": "3.4.135",
+      "name": "Tecnología e Innovación",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 8,
+      "status": "pending",
+      "position": {
+        "x": 391.2001155516098,
+        "y": 1834.678844951212
+      }
+    },
+    {
+      "id": "3.4.221",
+      "code": "3.4.221",
+      "name": "Negocios Tecnológicos",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 8,
+      "status": "pending",
+      "position": {
+        "x": 656.0769357030719,
+        "y": 1838.0314988222492
+      }
+    },
+    {
+      "id": "2.3.056",
+      "code": "2.3.056",
+      "name": "Derecho Informático",
+      "hours": 68,
+      "prerequisites": [],
+      "category": "Required",
+      "semester": 8,
+      "status": "pending",
+      "position": {
+        "x": 913.7867045903727,
+        "y": 1849.007800821864
+      }
+    }
+  ]
+}
